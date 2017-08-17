@@ -1,4 +1,4 @@
-# clock
+# devtools
 chrome extension
 
 # install 
@@ -7,8 +7,8 @@ open url install extension
 # Usage
 ```
 keyboard:
-   chromeos  Ctrl+Shift+M
-   linux     Ctrl+Shift+M
-   mac       Command+Shift+M
-   windows   Ctrl+Shift+M						
+   chromeos  Ctrl+Shift+ENTER
+   linux     Ctrl+Shift+ENTER
+   mac       Ctrl+Shift+ENTER
+   windows   Ctrl+Shift+ENTER						
 ```
