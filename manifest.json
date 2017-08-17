@@ -1,0 +1,39 @@
+{
+"name": "tools",
+"version": "1.0.0",
+"manifest_version": 2,
+"permissions": [
+	"tabs",
+	"http://*/*"
+],
+"icons": {
+	 "16": "icon_16.png", 
+	 "48": "icon_48.png"
+},
+"background": {
+	"scripts": ["jquery.js","background.js"]
+},
+"content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*"],
+	  "run_at": "document_end",
+      "js": ["jquery.js", "content.js"]
+    }
+],
+"browser_action": {
+    "default_title": "tools"
+},
+"web_accessible_resources":[
+	"bar.html","bar.css", "bar.js"
+],
+"commands":{
+	"_execute_browser_action":{
+		"suggested_key":{
+			"chromeos": "Ctrl+Shift+M",
+			"linux": "Ctrl+Shift+M",
+			"mac": "Command+Shift+M",
+			"windows": "Ctrl+Shift+M"								
+		}
+	}
+ }
+}
