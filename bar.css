@@ -7,7 +7,6 @@ body {
   background: rgba(0, 0, 0, 0.9);
   display: flex;
   font-family: sans-serif;
-  height: 120px;
   margin: 0;
   overflow: hidden;
   padding: 12px;
@@ -26,14 +25,30 @@ textarea {
   resize: none;
 }
 
-#query-box, #results-box {
+#now-time-box, #query-box, #results-box {
   display: flex;
   flex-direction: column;
+}
+#now-time-box {
+  padding-right: 12px;
+  width:300px;
+}
+#now-time-box-name{
+	font-size:18px;
+    color: #808080;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+#now-timestamp{
+	color:white;
+}
+#now-date-string{
+	color:white;
 }
 
 #query-box {
   padding-right: 12px;
-  width: 60%;
+  width: 40%;
 }
 
 #results-box {

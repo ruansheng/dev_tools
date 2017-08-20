@@ -1,5 +1,5 @@
 {
-"name": "tools",
+"name": "devtools",
 "version": "1.0.0",
 "manifest_version": 2,
 "permissions": [
@@ -24,16 +24,6 @@
     "default_title": "tools"
 },
 "web_accessible_resources":[
-	"bar.html","bar.css", "bar.js"
-],
-"commands":{
-	"_execute_browser_action":{
-		"suggested_key":{
-			"chromeos": "Ctrl+Shift+M",
-			"linux": "Ctrl+Shift+M",
-			"mac": "Command+Shift+M",
-			"windows": "Ctrl+Shift+M"								
-		}
-	}
- }
+	"bar.html","bar.css", "bar.js", "jquery.js","amazeui.min.js","amazeui.min.css"
+]
 }

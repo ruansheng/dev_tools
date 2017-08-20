@@ -2,17 +2,50 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="bar.css">
+	<link rel="stylesheet" type="text/css" href="amazeui.min.css">
+    <link rel="stylesheet" type="text/css" href="bar.css">	
+
   </head>
   <body>
+    <div id="now-time-box">
+		<div class="am-alert" data-am-alert>
+		  <p style="text-align:center;">时间转换</p>
+		</div>
+		<div style="height:100px;">
+			<span id="now-timestamp" style="width:100%;display:inline-block;text-align:center;"></span>
+			<br/>
+			<span id="now-date-string" style="width:100%;display:inline-block;text-align:center;"></span>
+			<div>
+			<button type="button" id="toggle_time" class="am-btn am-radius am-btn-secondary" auto_flush="1" style="display:block;margin:0 auto;margin-top:10px;">暂停</button>
+			</div>
+		</div>
+		
+		<form class="am-form">		
+			<div class="am-form-group" style="margin-top:20px;margin-left:15px;width:240px;">
+			      <textarea class="" rows="3" id="input_timestamp" placeholder="输入你的时间戳"></textarea>
+			</div>
+			<div class="am-form-group am-form-group-sm" style="margin-top:20px;margin-left:15px;width:240px;">
+			    <div>
+			      	<button type="button" id="transform_timestamp" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;">转日期</button>
+					<button type="button" id="transform_date" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;float:right;">转时间戳</button>
+			    </div>
+			</div>
+			<div class="am-form-group" style="margin-top:20px;margin-left:15px;width:240px;">
+			      <textarea class="" rows="3" id="input_date" placeholder="输入你的日期"></textarea>
+			</div>
+		</form>
+		
+    </div>
     <div id="query-box">
-      <div class="box-name">Query</div>
+      <div class="box-name">时间转换</div>
       <textarea id="query"></textarea>
     </div>
     <div id="results-box">
       <div class="box-name">Results (<span id="node-count"></span>)</div>
       <textarea id="results" readonly="readonly"></textarea>
     </div>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="amazeui.min.js"></script>	
     <script type="text/javascript" src="bar.js"></script>
   </body>
 </html>

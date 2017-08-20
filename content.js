@@ -12,7 +12,7 @@ var barFrame = document.createElement('iframe');
 barFrame.setAttribute("id", "tools-iframe");
 barFrame.src = chrome.runtime.getURL('bar.html');
 $("body").prepend(barFrame);
-$("#tools-iframe").css({"position":"fixed", "width":"100%", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
+$("#tools-iframe").css({"position":"fixed", "width":"100%", "height":"500px", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
 
 /**
 * Bar Dispaly
