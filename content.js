@@ -2,7 +2,7 @@
     var keyCode = e.which;
     var ctrlKey = e.ctrlKey || e.metaKey;
 	var shiftKey = e.shiftKey;
-    if(ctrlKey && shiftKey && keyCode == 13) {  // ctrl + shift + enter
+    if(ctrlKey && shiftKey && keyCode == 4) {  // ctrl + shift + D
     	toggleBarDispaly();
 	}
 	return true;
