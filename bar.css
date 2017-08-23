@@ -46,9 +46,9 @@ textarea {
 	color:white;
 }
 
-#query-box {
+#encryption-decryption-box {
   padding-right: 12px;
-  width: 40%;
+  width: 300px;
 }
 
 #results-box {

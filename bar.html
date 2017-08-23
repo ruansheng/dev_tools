@@ -36,9 +36,29 @@
 		</form>
 		
     </div>
-    <div id="query-box">
-      <div class="box-name">时间转换</div>
-      <textarea id="query"></textarea>
+    <div id="encryption-decryption-box">
+		<div class="am-alert" data-am-alert>
+		  <p style="text-align:center;">密码转换</p>
+		</div>
+		<form class="am-form">		
+			<p><input type="text" id="waiting-encryption-string" class="am-form-field am-radius" placeholder="待加密字符串" /></p>
+			<p><input type="text" id="result-encryption-string" class="am-form-field am-radius" placeholder="加密结果" /></p>
+			<div class="am-form-group am-form-group-sm" style="margin-top:20px;margin-left:25px;width:240px;">
+			    <div>
+			      	<button type="button" id="transform_md5" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;">MD5加密</button>
+					<button type="button" id="transform_sha1" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;float:right;">SHA1加密</button>
+			    </div>
+			</div>
+
+			<p><input type="text" id="base64-encode-string" class="am-form-field am-radius" placeholder="base64源码字符串" /></p>
+			<div class="am-form-group am-form-group-sm" style="margin-top:20px;margin-left:25px;width:240px;">
+			    <div>
+			      	<button type="button" id="transform_base64_encode" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;">encode</button>
+					<button type="button" id="transform_base64_decode" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;float:right;">decode</button>
+			    </div>
+			</div>
+			<p><input type="text" id="base64-decode-string" class="am-form-field am-radius" placeholder="base64加密字符串" /></p>
+		</form>
     </div>
     <div id="results-box">
       <div class="box-name">Results (<span id="node-count"></span>)</div>
@@ -46,6 +66,9 @@
     </div>
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="amazeui.min.js"></script>	
+	<script type="text/javascript" src="md5.js"></script>
+	<script type="text/javascript" src="sha1.js"></script>
+	<script type="text/javascript" src="base64.js"></script>
     <script type="text/javascript" src="bar.js"></script>
   </body>
 </html>

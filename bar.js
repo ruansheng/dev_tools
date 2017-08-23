@@ -107,4 +107,35 @@ $(function() {
 		$('#input_timestamp').val(timestamp_array.join('\n'));		
 	});
 	
+	$('#transform_md5').click(function(){
+		var string = $('#waiting-encryption-string').val();
+		if(string != '') {
+			var hash = md5(string);
+			$('#result-encryption-string').val(hash);			
+		}
+	});
+	$('#transform_sha1').click(function(){
+		var string = $('#waiting-encryption-string').val();
+		if(string != '') {
+			var hash = sha1(string);
+			$('#result-encryption-string').val(hash);			
+		}
+	});
+
+	$('#transform_base64_encode').click(function(){
+		var string = $('#base64-encode-string').val();
+		if(string != '') {
+			var encodedData = window.btoa(string);
+			$('#base64-decode-string').val(encodedData);			
+		}
+	});
+	$('#transform_base64_decode').click(function(){
+		var string = $('#base64-decode-string').val();
+		if(string != '') {
+			var decodedData = window.atob(string);
+			$('#base64-encode-string').val(decodedData);			
+		}
+	});
+	
+	
 })
