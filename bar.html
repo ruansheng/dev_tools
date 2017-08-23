@@ -7,19 +7,32 @@
 	<link rel="stylesheet" href="jquery.jsonview.css" />
   </head>
   <body>
-    <div id="now-time-box">
-		<div class="am-alert" data-am-alert>
-		  <p style="text-align:center;">时间转换</p>
-		</div>
-		<div style="height:100px;">
-			<span id="now-timestamp" style="width:100%;display:inline-block;text-align:center;"></span>
-			<br/>
-			<span id="now-date-string" style="width:100%;display:inline-block;text-align:center;"></span>
+<div id="content-box">
+
+	<div id="collect-label-box" class="am-panel am-panel-primary">
+		<div class="am-panel-hd" style="text-align:center;">标签收藏</div>
+		<div class="am-panel-bd">
 			<div>
-			<button type="button" id="toggle_time" class="am-btn am-radius am-btn-secondary" auto_flush="1" style="display:block;margin:0 auto;margin-top:10px;">暂停</button>
+				<a class="am-badge am-badge-primary am-radius" target="_blank" href="https://moirai.immomo.com/admin/q1w2e3/">moirai</a>
+				<a class="am-badge am-badge-secondary am-radius" target="_blank" href="http://www.baidu.com">百度</a>
+				<a class="am-badge am-badge-success am-radius" target="_blank" href="http://www.baidu.com">测试1</a>
+				<a class="am-badge am-badge-warning am-radius" target="_blank" href="http://www.baidu.com">测试2</a>
+				<a class="am-badge am-badge-danger am-radius" target="_blank" href="http://www.baidu.com">测试3</a>
 			</div>
 		</div>
-		
+	</div>
+	
+	<div id="now-time-box" class="am-panel am-panel-primary">
+		<div class="am-panel-hd" style="text-align:center;">时间转换</div>
+		<div class="am-panel-bd">
+			<div style="height:100px;">
+				<span id="now-timestamp" style="width:100%;display:inline-block;text-align:center;color:red;"></span>
+				<br/>
+				<span id="now-date-string" style="width:100%;display:inline-block;text-align:center;color:red;"></span>
+				<div>
+					<button type="button" id="toggle_time" class="am-btn am-radius am-btn-secondary" auto_flush="1" style="display:block;margin:0 auto;margin-top:10px;">暂停</button>
+				</div>
+			</div>
 		<form class="am-form">		
 			<div class="am-form-group" style="margin-top:20px;margin-left:15px;width:240px;">
 			      <textarea class="" rows="3" id="input_timestamp" placeholder="输入你的时间戳"></textarea>
@@ -34,12 +47,12 @@
 			      <textarea class="" rows="3" id="input_date" placeholder="输入你的日期"></textarea>
 			</div>
 		</form>
-		
-    </div>
-    <div id="encryption-decryption-box">
-		<div class="am-alert" data-am-alert>
-		  <p style="text-align:center;">密码转换</p>
 		</div>
+	</div>
+
+	<div id="encryption-decryption-box" class="am-panel am-panel-primary">
+		<div class="am-panel-hd" style="text-align:center;">密码转换</div>
+		<div class="am-panel-bd">
 		<form class="am-form">		
 			<p><input type="text" id="waiting-encryption-string" class="am-form-field am-radius" placeholder="待加密字符串" /></p>
 			<p><input type="text" id="result-encryption-string" class="am-form-field am-radius" placeholder="加密结果" /></p>
@@ -59,7 +72,13 @@
 			</div>
 			<p><input type="text" id="base64-decode-string" class="am-form-field am-radius" placeholder="base64加密字符串" /></p>
 		</form>
-    </div>
+
+		</div>
+	</div>
+	
+</div>
+
+<!--
     <div id="jsonview-box">
 	<form class="am-form">		
 		<div class="am-form-group" style="margin-top:20px;margin-left:15px;width:240px;">
@@ -78,6 +97,8 @@
 	  <div id="json-debug" style="word-wrap: break-word;"></div>
 	  
     </div>
+-->		
+		
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="amazeui.min.js"></script>	
 	<script type="text/javascript" src="md5.js"></script>
