@@ -24,6 +24,6 @@
     "default_title": "tools"
 },
 "web_accessible_resources":[
-	"bar.html","bar.css", "bar.js", "jquery.js","amazeui.min.js","amazeui.min.css","md5.js"
+	"bar.html","bar.css", "bar.js", "jquery.js","amazeui.min.js","amazeui.min.css"
 ]
 }

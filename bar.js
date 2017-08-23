@@ -137,5 +137,23 @@ $(function() {
 		}
 	});
 	
+	/** jsonview 插件 */
+    $('#toggle-btn-debug').on('click', function() {
+    	$('#json-debug').JSONView('toggle');
+	});
+	$('#toggle-level1-btn-debug').on('click', function() {
+		$('#json-debug').JSONView('toggle', 1);
+    });
+	$('#toggle-level2-btn-debug').on('click', function() {
+		$('#json-debug').JSONView('toggle', 2);
+	});
 	
+	$('#transform_json_string').click(function(){
+		var string = $('#json-string').val();
+		if(string != '') {
+			alert(string);
+			$("#json-debug").JSONView(string);
+		}
+	});
+
 })
