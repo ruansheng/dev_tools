@@ -36,7 +36,7 @@ var menusBarFrame = document.createElement('iframe');
 menusBarFrame.setAttribute("id", "menus-iframe");
 menusBarFrame.src = chrome.runtime.getURL('menus_bar.html');
 $("body").prepend(menusBarFrame);
-$("#menus-iframe").css({"position":"fixed", "width":"100%", "height":"auto", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
+$("#menus-iframe").css({"position":"fixed", "width":"100%", "height":"auto", "z-index":10000, "top":"0px", "left":"0px", "display":"none","opacity":1});
 
 
 function contextMenusBarDispaly() {
