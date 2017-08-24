@@ -138,7 +138,8 @@ $(function() {
 	});
 	
 	/** jsonview 插件 */
-    $('#toggle-btn-debug').on('click', function() {
+    /*
+	$('#toggle-btn-debug').on('click', function() {
     	$('#json-debug').JSONView('toggle');
 	});
 	$('#toggle-level1-btn-debug').on('click', function() {
@@ -154,6 +155,21 @@ $(function() {
 			alert(string);
 			$("#json-debug").JSONView(string);
 		}
+	});
+	*/
+
+
+	$('#doc-prompt-toggle').on('click', function() {
+	    $('#color-select-alert').modal({
+	      relatedTarget: this
+	    });
+	  });
+
+	//$('#color-picker').colpick();
+	$('#color-picker').colpick({
+		flat:true,
+		//layout:'hex',
+		submit:0
 	});
 
 })

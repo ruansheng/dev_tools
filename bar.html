@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="amazeui.min.css">
-    <link rel="stylesheet" type="text/css" href="bar.css">	
-	<link rel="stylesheet" href="jquery.jsonview.css" />
+	<link rel="stylesheet" type="text/css" href="css/amazeui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bar.css">	
+	<link rel="stylesheet" type="text/css" href="css/colpick.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.jsonview.css" />
   </head>
   <body>
 <div id="content-box">
@@ -76,6 +77,41 @@
 		</div>
 	</div>
 	
+	<div id="other-func-box" class="am-panel am-panel-primary">
+		<div class="am-panel-hd" style="text-align:center;">其他</div>
+		<div class="am-panel-bd">
+			<div>
+				<button type="button" class="am-btn am-btn-success" id="doc-prompt-toggle">颜色选择器</button>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<!-- 颜色选择器模态框 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="color-select-alert">
+  <div class="am-modal-dialog" style="width:370px;">
+    <div class="am-modal-hd">颜色选择器</div>
+    <div class="am-modal-bd">
+		<div id="color-picker"></div>
+	</div>
+  </div>
+</div>
+
+
+<!-- 收藏标签模态框 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="collect-form-alert">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">收藏标签</div>
+    <div class="am-modal-bd">
+      <input type="text" id="page-title" class="am-modal-prompt-input">
+	  <input type="text" id="page-link" class="am-modal-prompt-input">
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+    </div>
+  </div>
 </div>
 
 <!--
@@ -100,11 +136,12 @@
 -->		
 		
 	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="amazeui.min.js"></script>	
-	<script type="text/javascript" src="md5.js"></script>
-	<script type="text/javascript" src="sha1.js"></script>
-	<script type="text/javascript" src="base64.js"></script>
-	<script src="jquery.jsonview.js"></script>
-    <script type="text/javascript" src="bar.js"></script>
+	<script type="text/javascript" src="js/amazeui.min.js"></script>	
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/sha1.js"></script>
+	<script type="text/javascript" src="js/base64.js"></script>
+	<script type="text/javascript" src="js/colpick.js"></script>
+	<script type="text/javascript" src="js/jquery.jsonview.js"></script>
+    <script type="text/javascript" src="js/bar.js"></script>
   </body>
 </html>
