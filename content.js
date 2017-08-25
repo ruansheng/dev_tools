@@ -23,20 +23,6 @@ menusAddcollectBarFrame.src = chrome.runtime.getURL('menus_addcollect_bar.html')
 $("body").prepend(menusAddcollectBarFrame);
 $("#menus-addcollect-iframe").css({"position":"fixed", "width":"100%", "height":"100%", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
 
-// 添加上线文菜单(转时间戳)iframe
-var menusTrantimestampBarFrame = document.createElement('iframe');
-menusTrantimestampBarFrame.setAttribute("id", "menus-trantimestamp-iframe");
-menusTrantimestampBarFrame.src = chrome.runtime.getURL('menus_trantimestamp_bar.html');
-$("body").prepend(menusTrantimestampBarFrame);
-$("#menus-trantimestamp-iframe").css({"position":"fixed", "width":"100%", "height":"100%", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
-
-// 添加上线文菜单(转日期)iframe
-var menusTrandateBarFrame = document.createElement('iframe');
-menusTrandateBarFrame.setAttribute("id", "menus-trandate-iframe");
-menusTrandateBarFrame.src = chrome.runtime.getURL('menus_trandate_bar.html');
-$("body").prepend(menusTrandateBarFrame);
-$("#menus-trandate-iframe").css({"position":"fixed", "width":"100%", "height":"100%", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
-
 /**
 * Bar Dispaly
 */
@@ -61,28 +47,12 @@ function contextMenusAddcollectBarDispaly() {
 	}
 }
 
-/**
-* Trantimestamp Bar Dispaly
-*/
-function contextMenusTrantimestampBarDispaly() {
-	var display =$('#menus-trantimestamp-iframe').css('display');
-	if(display == 'none'){
-	 	$("#menus-trantimestamp-iframe").css({"display":"block"});  
-	} else {
-		$("#menus-trantimestamp-iframe").css({"display":"none"});
-	}
-}
+function sendMessageToAddcollectBar() {
+	var port = chrome.runtime.connect({name: "menus_pipe"});//通道名称
+	port.postMessage({type: "open_modal"});//发送消息
+	port.onMessage.addListener(function(msg) {//监听消息
 
-/**
-* Trandate Bar Dispaly
-*/
-function contextMenusTrandateBarDispaly() {
-	var display =$('#menus-trandate-iframe').css('display');
-	if(display == 'none'){
-	 	$("#menus-trandate-iframe").css({"display":"block"});  
-	} else {
-		$("#menus-trandate-iframe").css({"display":"none"});
-	}
+	});
 }
 
 // 接收background.js的消息
@@ -97,11 +67,9 @@ chrome.extension.onRequest.addListener(
   	function(request, sender, sendResponse) {
     	if(request.type == "addCollect") {
 			contextMenusAddcollectBarDispaly();
-		} else if(request.type == "tranTimestamp") {
-			contextMenusTrantimestampBarDispaly();
-			console.log(document);			
-		} else if(request.type == "tranDate") {
-			contextMenusTrandateBarDispaly();
+			sendMessageToAddcollectBar();
+		} else if(request.type == "cancelAddCollect") {
+			contextMenusAddcollectBarDispaly();
 		}
 	}
 );
@@ -120,5 +88,4 @@ chrome.extension.onMessage.addListener(
 			sendResponse({content:docFragment}); 
 		}
 });
-
 

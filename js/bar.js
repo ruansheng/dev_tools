@@ -171,5 +171,45 @@ $(function() {
 		$("#qrcode-box").empty();
 		$('#qrcode-box').qrcode({width: 128,height: 128, text: string});
 	});
-	  
+
+	// json格式化
+	$('#jsonview-confirm-toggle').click(function(){
+		$('#jsonview-alert').modal({
+		     relatedTarget: this
+		});		
+	});
+
+	// 创建文本编辑器
+	var editor = ace.edit("ace-editor");
+	var json_string = editor.getValue();
+	var json_obj = $.parseJSON(json_string);
+	$("#jsonview-format-ret").JSONView(json_obj, { collapsed: true, nl2br: true, recursive_collapser: true });
+	
+	// 格式化
+	$('#format-json-btn').click(function() {
+		var json_string = editor.getValue();
+		var json_obj = $.parseJSON(json_string);
+		$("#jsonview-format-ret").JSONView(json_obj, { collapsed: true, nl2br: true, recursive_collapser: true });
+	});
+	
+	$('#collapse-btn').on('click', function() {
+		$('#jsonview-format-ret').JSONView('collapse');
+	});
+
+	$('#expand-btn').on('click', function() {
+		$('#jsonview-format-ret').JSONView('expand');
+	});
+
+	$('#toggle-btn').on('click', function() {
+		$('#jsonview-format-ret').JSONView('toggle');
+	});
+
+	$('#toggle-level1-btn').on('click', function() {
+		$('#jsonview-format-ret').JSONView('toggle', 1);
+	});
+
+	$('#toggle-level2-btn').on('click', function() {
+		$('#jsonview-format-ret').JSONView('toggle', 2);
+	});
+	
 })
