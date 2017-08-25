@@ -80,8 +80,11 @@
 	<div id="other-func-box" class="am-panel am-panel-primary">
 		<div class="am-panel-hd" style="text-align:center;">其他</div>
 		<div class="am-panel-bd">
-			<div>
-				<button type="button" class="am-btn am-btn-success" id="doc-prompt-toggle">颜色选择器</button>
+			<div class="other-func-btn-box">
+				<button type="button" class="am-btn am-btn-success" id="color-select-prompt-toggle">color选择器</button>
+				<button type="button" class="am-btn am-btn-warning" id="unicode-prompt-toggle">unicode转换</button>
+				<button type="button" class="am-btn am-btn-secondary" id="jsonview-prompt-toggle">json格式化</button>				
+				<button type="button" class="am-btn am-btn-success" id="qrcode-prompt-toggle">二维码</button>
 			</div>
 		</div>
 	</div>
@@ -98,8 +101,28 @@
   </div>
 </div>
 
+<!-- 二维码模态框 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="qccode-alert">
+  <div class="am-modal-dialog" style="width:370px;">
+    <div class="am-modal-hd">二维码</div>
+    <div class="am-modal-bd" style="padding-top:10px;">
+		<div id="qrcode-box">
+		</div>
+		<div id="qrcode-box-form">
+			<form class="am-form">		
+				<p><input type="text" id="waiting-create-qrcode-string" class="am-form-field am-radius" placeholder="待生成二维码字符串" /></p>
+				<div>
+					<button type="button" id="create_qrcode" class="am-btn am-radius am-btn-secondary" style="width:180px;display:inline-block;">生成二维码</button>
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+  </div>
+</div>
 
-<!-- 收藏标签模态框 -->
+
+<!-- 收藏标签模态框
 <div class="am-modal am-modal-prompt" tabindex="-1" id="collect-form-alert">
   <div class="am-modal-dialog">
     <div class="am-modal-hd">收藏标签</div>
@@ -113,35 +136,16 @@
     </div>
   </div>
 </div>
-
-<!--
-    <div id="jsonview-box">
-	<form class="am-form">		
-		<div class="am-form-group" style="margin-top:20px;margin-left:15px;width:240px;">
-		      <textarea class="" rows="3" id="json-string" placeholder="json字符串"></textarea>
-		</div>
-		<div class="am-form-group am-form-group-sm" style="margin-top:20px;margin-left:15px;width:240px;">
-		    <div>
-		      	<button type="button" id="transform_json_string" class="am-btn am-radius am-btn-secondary" style="width:100%;display:inline-block;">格式化json</button>
-		    </div>
-		</div>
-	</form>
-	  
-	  <button id="toggle-btn-debug">Toggle</button>
-	  <button id="toggle-level1-btn-debug">Toggle level1</button>
-	  <button id="toggle-level2-btn-debug">Toggle level2</button>
-	  <div id="json-debug" style="word-wrap: break-word;"></div>
-	  
-    </div>
--->		
+ -->
 		
-	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/amazeui.min.js"></script>	
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript" src="js/sha1.js"></script>
 	<script type="text/javascript" src="js/base64.js"></script>
 	<script type="text/javascript" src="js/colpick.js"></script>
 	<script type="text/javascript" src="js/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
     <script type="text/javascript" src="js/bar.js"></script>
   </body>
 </html>

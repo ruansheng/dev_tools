@@ -13,7 +13,7 @@ body {
 }
 
 #content-box{
-	width:1070px;
+	width:1080px;
 	margin:0 auto;
 }
 
@@ -51,26 +51,28 @@ body {
 }
 
 #other-func-box{
-	width: 150px;
+	width: 160px;
 	height:480px;  
 	float:left;
 	margin-left:5px;	
 }
 
-/*
-#jsonview-box {
-  width: 40%;
+.other-func-btn-box button{
+	width:125px;
+	text-align:center;
+	margin-bottom:5px;
 }
 
-.box-name {
-  color: #808080;
-  font-size: 12px;
-  padding-bottom: 2px;
-  text-transform: uppercase;
+#qrcode-box {
+	width:128px;
+	height:128px;	
+	float:left;
+	display:inline-block;
+	margin-left:10px;
 }
-
-#query, #results {
-  flex: 1;
-  width: 100%;
+#qrcode-box-form {
+	width:180px;
+	height:128px;	
+	display:inline-block;
+	padding-top:17px;
 }
-*/

@@ -136,40 +136,40 @@ $(function() {
 			$('#base64-encode-string').val(decodedData);			
 		}
 	});
-	
-	/** jsonview 插件 */
-    /*
-	$('#toggle-btn-debug').on('click', function() {
-    	$('#json-debug').JSONView('toggle');
-	});
-	$('#toggle-level1-btn-debug').on('click', function() {
-		$('#json-debug').JSONView('toggle', 1);
-    });
-	$('#toggle-level2-btn-debug').on('click', function() {
-		$('#json-debug').JSONView('toggle', 2);
-	});
-	
-	$('#transform_json_string').click(function(){
-		var string = $('#json-string').val();
-		if(string != '') {
-			alert(string);
-			$("#json-debug").JSONView(string);
-		}
-	});
-	*/
 
-
-	$('#doc-prompt-toggle').on('click', function() {
+	// color选择器
+	$('#color-select-prompt-toggle').click(function() {
 	    $('#color-select-alert').modal({
 	      relatedTarget: this
 	    });
 	  });
 
-	//$('#color-picker').colpick();
 	$('#color-picker').colpick({
 		flat:true,
 		//layout:'hex',
 		submit:0
 	});
 
+	// 二维码
+	$('#qrcode-prompt-toggle').click(function() {
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs){  
+		    chrome.tabs.sendMessage(tabs[0].id, {type:"get_page_info"}, function(response) {  
+		        var url = response.url; 
+				$("#qrcode-box").empty();
+				$('#waiting-create-qrcode-string').val(url);
+				$('#qrcode-box').qrcode({width: 128,height: 128, text: url});
+			    $('#qccode-alert').modal({
+					  relatedTarget: this
+			    });
+		    });
+		});  
+	});
+	  
+	// 生成二维码
+	$('#create_qrcode').click(function() {
+		var string = $('#waiting-create-qrcode-string').val();
+		$("#qrcode-box").empty();
+		$('#qrcode-box').qrcode({width: 128,height: 128, text: string});
+	});
+	  
 })
