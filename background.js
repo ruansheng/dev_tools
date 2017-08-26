@@ -22,6 +22,8 @@ chrome.extension.onRequest.addListener(
 		sendMessageToContent("addCollect");
   	} else if(request.type == "cancelAddCollect") {
   		sendMessageToContent("cancelAddCollect");
+  	} else if(request.type == "saveCollectData") {
+		saveCollectData(request.title, request.link);
   	}
 });
   
@@ -32,3 +34,8 @@ function sendMessageToContent(type) {
 	  	});
 	});  	
 }  
+
+// 保存收藏的标签
+function saveCollectData(title, link) {
+	alert(title + link)
+}

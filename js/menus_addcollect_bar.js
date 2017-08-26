@@ -25,6 +25,8 @@
 				var page_link = $('#page-link').val();			
 		    
 				// localStrage存储
+				chrome.extension.sendRequest({type: "saveCollectData", title: page_title, link: page_link}, function(response) {
+				});
 			
 				// 发消息到background通知content隐藏iframe
 				chrome.extension.sendRequest({type: "cancelAddCollect"}, function(response) {
