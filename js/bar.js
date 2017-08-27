@@ -196,5 +196,5 @@ $(function() {
 	$('#toggle-level2-btn').on('click', function() {
 		$('#jsonview-format-ret').JSONView('toggle', 2);
 	});
-	
+
 })

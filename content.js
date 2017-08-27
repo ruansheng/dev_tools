@@ -14,7 +14,7 @@ var barFrame = document.createElement('iframe');
 barFrame.setAttribute("id", "tools-iframe");
 barFrame.src = chrome.runtime.getURL('bar.html');
 $("body").prepend(barFrame);
-$("#tools-iframe").css({"position":"fixed", "width":"100%", "height":"500px", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
+$("#tools-iframe").css({"position":"fixed", "width":"100%", "height":"350px", "z-index":10000, "top":"0px", "left":"0px", "display":"none"});
 
 // 添加上线文菜单(添加收藏)iframe
 var menusAddcollectBarFrame = document.createElement('iframe');
