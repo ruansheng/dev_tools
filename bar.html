@@ -26,25 +26,27 @@
 	<div id="now-time-box" class="am-panel am-panel-primary">
 		<div class="am-panel-hd" style="text-align:center;">时间转换</div>
 		<div class="am-panel-bd">
-			<div style="height:100px;">
-				<span id="now-timestamp" style="width:100%;display:inline-block;text-align:center;color:red;"></span>
-				<br/>
-				<span id="now-date-string" style="width:100%;display:inline-block;text-align:center;color:red;"></span>
-				<div>
-					<button type="button" id="toggle_time" class="am-btn am-radius am-btn-secondary" auto_flush="1" style="display:block;margin:0 auto;margin-top:10px;">暂停</button>
+			<div style="height:50px;">
+				<div id="time-left-box">
+					<span id="now-timestamp" style="width:100%;display:inline-block;text-align:center;color:red;"></span>
+					<br/>
+					<span id="now-date-string" style="width:100%;display:inline-block;text-align:center;color:red;"></span>					
+				</div>
+				<div id="time-right-box">
+					<button type="button" id="toggle_time" class="am-btn am-radius am-btn-secondary" auto_flush="1">暂停</button>
 				</div>
 			</div>
 		<form class="am-form">		
-			<div class="am-form-group" style="margin-top:20px;margin-left:15px;width:240px;">
+			<div style="margin-top:10px;margin-left:15px;width:240px;">
 			      <textarea class="" rows="3" id="input_timestamp" placeholder="输入你的时间戳"></textarea>
 			</div>
-			<div class="am-form-group am-form-group-sm" style="margin-top:20px;margin-left:15px;width:240px;">
+			<div class="am-form-group-sm" style="margin-top:10px;margin-left:15px;width:240px;">
 			    <div>
 			      	<button type="button" id="transform_timestamp" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;">转日期</button>
 					<button type="button" id="transform_date" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;float:right;">转时间戳</button>
 			    </div>
 			</div>
-			<div class="am-form-group" style="margin-top:20px;margin-left:15px;width:240px;">
+			<div style="margin-top:10px;margin-left:15px;width:240px;">
 			      <textarea class="" rows="3" id="input_date" placeholder="输入你的日期"></textarea>
 			</div>
 		</form>
@@ -53,26 +55,26 @@
 
 	<div id="encryption-decryption-box" class="am-panel am-panel-primary">
 		<div class="am-panel-hd" style="text-align:center;">密码转换</div>
-		<div class="am-panel-bd">
-		<form class="am-form">		
-			<p><input type="text" id="waiting-encryption-string" class="am-form-field am-radius" placeholder="待加密字符串" /></p>
-			<p><input type="text" id="result-encryption-string" class="am-form-field am-radius" placeholder="加密结果" /></p>
-			<div class="am-form-group am-form-group-sm" style="margin-top:20px;margin-left:25px;width:240px;">
+		<div class="am-panel-bd" style="padding-bottom:0px;">
+			<input type="text" id="waiting-encryption-string" class="am-form-field am-radius" placeholder="待加密字符串" />
+			<div class="am-form-group-sm" style="margin-top:5px;">
 			    <div>
 			      	<button type="button" id="transform_md5" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;">MD5加密</button>
 					<button type="button" id="transform_sha1" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;float:right;">SHA1加密</button>
 			    </div>
 			</div>
-
-			<p><input type="text" id="base64-encode-string" class="am-form-field am-radius" placeholder="base64源码字符串" /></p>
-			<div class="am-form-group am-form-group-sm" style="margin-top:20px;margin-left:25px;width:240px;">
+			<input style="margin-top:5px;" type="text" id="result-encryption-string" class="am-form-field am-radius" placeholder="加密结果" />
+		</div>
+		<hr style="margin-top:15px;margin-bottom:15px;"/>
+		<div class="am-panel-bd" style="padding-top:0px;">
+			<input type="text" id="base64-encode-string" class="am-form-field am-radius" placeholder="base64源码字符串" />
+			<div class="am-form-group-sm" style="margin-top:5px;">
 			    <div>
 			      	<button type="button" id="transform_base64_encode" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;">encode</button>
 					<button type="button" id="transform_base64_decode" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;float:right;">decode</button>
 			    </div>
 			</div>
-			<p><input type="text" id="base64-decode-string" class="am-form-field am-radius" placeholder="base64加密字符串" /></p>
-		</form>
+			<input style="margin-top:5px;" type="text" id="base64-decode-string" class="am-form-field am-radius" placeholder="base64加密字符串" />
 
 		</div>
 	</div>
