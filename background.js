@@ -24,6 +24,9 @@ chrome.extension.onRequest.addListener(
   		sendMessageToContent("cancelAddCollect");
   	} else if(request.type == "saveCollectData") {
 		saveCollectData(request.title, request.link);
+	} else if(request.type == "getCollectList") {
+		var data = getCollectData();
+		sendResponse({list:data});
   	}
 });
   
@@ -37,5 +40,28 @@ function sendMessageToContent(type) {
 
 // 保存收藏的标签
 function saveCollectData(title, link) {
-	alert(title + link)
+	var data = {
+		title:title,
+		link:link
+	};
+	var list = new Array();
+	if(list.length == 0) {
+		list = new Array();
+		list.push(data);
+	} else {
+		list.push(data);
+	}
+	var string = JSON.stringify(list);
+	localStorage.setItem("collects", string);
+}
+
+// 获取收藏的标签
+function getCollectData() {
+	//saveCollectData("test", "http://www.baidu.com");
+	var string = localStorage.getItem("collects");
+	if(string == null) {
+		return new Array();
+	}
+	var data = JSON.parse(string)
+	return data;
 }

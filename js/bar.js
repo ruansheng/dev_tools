@@ -197,4 +197,21 @@ $(function() {
 		$('#jsonview-format-ret').JSONView('toggle', 2);
 	});
 
+	// 定时刷新收藏的标签
+	setInterval(function() {
+		// 发消息到background通知content隐藏iframe
+		chrome.extension.sendRequest({type: "getCollectList"}, function(response) {
+			console.log(response);
+			dispalyList(response.list)
+		});
+	}, 1000);
+
+	function dispalyList(list) {
+		var html = '';
+		for(var i =0; i < list.length; i++){
+			html += '<a class="am-badge am-badge-secondary am-radius" target="_blank" href="'+ list[i].link +'">' + list[i].title + '</a>';	
+		}
+		console.log(html);
+		$('#collect-list-box').html(html);
+	}
 })
