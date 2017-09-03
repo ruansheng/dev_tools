@@ -197,11 +197,29 @@ $(function() {
 		$('#jsonview-format-ret').JSONView('toggle', 2);
 	});
 
+	// urlencode转换
+	$('#urlencode-prompt-toggle').click(function() {
+	    $('#urlencode-alert').modal({
+	      relatedTarget: this
+	    });
+	});
+	
+	$('#transform_urlencode').click(function() {
+		var old_text = $('#old-text').val();
+		var encode_text = encodeURIComponent(old_text);
+		$('#encode-text').val(encode_text);
+	});
+
+	$('#transform_urldecode').click(function() {
+		var encode_text = $('#encode-text').val();
+		var old_text = decodeURIComponent(encode_text);
+		$('#old-text').val(old_text);
+	});
+
 	// 定时刷新收藏的标签
 	setInterval(function() {
 		// 发消息到background通知content隐藏iframe
 		chrome.extension.sendRequest({type: "getCollectList"}, function(response) {
-			console.log(response);
 			dispalyList(response.list)
 		});
 	}, 1000);
@@ -209,9 +227,9 @@ $(function() {
 	function dispalyList(list) {
 		var html = '';
 		for(var i =0; i < list.length; i++){
-			html += '<a class="am-badge am-badge-secondary am-radius" target="_blank" href="'+ list[i].link +'">' + list[i].title + '</a>';	
+			var item_style =  list[i].style;
+			html += '<a style="max-width:125px;padding:5px;overflow:scroll;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="dispaly:block;">' + list[i].title + '</span></a><br/>';	
 		}
-		console.log(html);
 		$('#collect-list-box').html(html);
 	}
 })

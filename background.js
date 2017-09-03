@@ -5,7 +5,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 //右键菜单:一级菜单
 var parent = chrome.contextMenus.create({"title": "devtools"});
-chrome.contextMenus.create({"title": "添加收藏", "parentId": parent, "onclick": doOnMessageToContentFromCollect});
+chrome.contextMenus.create({"title": "添加收藏标签", "parentId": parent, "onclick": doOnMessageToContentFromCollect});
+chrome.contextMenus.create({"title": "清空收藏标签", "parentId": parent, "onclick": doClearCollectList});
 
 // 通知内容页脚本执行 添加收藏
 function doOnMessageToContentFromCollect() {
@@ -13,6 +14,11 @@ function doOnMessageToContentFromCollect() {
 	  	chrome.tabs.sendRequest(tab.id, {type: "addCollect"}, function(response) {
 	  	});
 	});
+}
+
+// 在当前北京中执行 清空收藏
+function doClearCollectList(){
+	localStorage.setItem("collects", "");
 }
 
 // 接收 注入的 menus_bar js中发送的消息
@@ -23,7 +29,7 @@ chrome.extension.onRequest.addListener(
   	} else if(request.type == "cancelAddCollect") {
   		sendMessageToContent("cancelAddCollect");
   	} else if(request.type == "saveCollectData") {
-		saveCollectData(request.title, request.link);
+		saveCollectData(request.title, request.link, request.style);
 	} else if(request.type == "getCollectList") {
 		var data = getCollectData();
 		sendResponse({list:data});
@@ -39,27 +45,22 @@ function sendMessageToContent(type) {
 }  
 
 // 保存收藏的标签
-function saveCollectData(title, link) {
+function saveCollectData(title, link, style) {
 	var data = {
 		title:title,
-		link:link
+		link:link,
+		style: style
 	};
-	var list = new Array();
-	if(list.length == 0) {
-		list = new Array();
-		list.push(data);
-	} else {
-		list.push(data);
-	}
+	var list = getCollectData();
+	list.push(data);
 	var string = JSON.stringify(list);
 	localStorage.setItem("collects", string);
 }
 
 // 获取收藏的标签
 function getCollectData() {
-	//saveCollectData("test", "http://www.baidu.com");
 	var string = localStorage.getItem("collects");
-	if(string == null) {
+	if(string == null || string == "") {
 		return new Array();
 	}
 	var data = JSON.parse(string)

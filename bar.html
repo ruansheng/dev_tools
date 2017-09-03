@@ -83,6 +83,7 @@
 				<button type="button" class="am-btn am-btn-warning" id="unicode-prompt-toggle">unicode转换</button>
 				<button type="button" class="am-btn am-btn-secondary" id="jsonview-confirm-toggle">json格式化</button>				
 				<button type="button" class="am-btn am-btn-success" id="qrcode-prompt-toggle">二维码</button>
+				<button type="button" class="am-btn am-btn-warning" id="urlencode-prompt-toggle">urlencode转换</button>
 			</div>
 		</div>
 	</div>
@@ -115,7 +116,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- 二维码模态框 -->
 <div class="am-modal am-modal-prompt" tabindex="-1" id="qccode-alert">
@@ -154,6 +154,23 @@
 			<button id="toggle-level2-btn">Toggle level2</button>
 			<div id="jsonview-format-ret"></div>
 		</div>
+    </div>
+  </div>
+</div>
+
+<!-- urlencode转换模态框 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="urlencode-alert">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">unicode转换</div>
+    <div class="am-modal-bd">
+      <input type="text" id="old-text" class="am-modal-prompt-input" placeholder="原内容">
+    <div class="am-form-group am-form-group-sm" style="margin-top:20px;width:300px;margin-left:110px;">
+		<div>
+			<button type="button" id="transform_urlencode" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;">urlencode</button>
+			<button type="button" id="transform_urldecode" class="am-btn am-radius am-btn-secondary" style="width:110px;display:inline-block;margin-left:50px;">urldecode</button>
+		</div>
+    </div>	
+	  <input type="text" id="encode-text" class="am-modal-prompt-input"  placeholder="编码内容">
     </div>
   </div>
 </div>

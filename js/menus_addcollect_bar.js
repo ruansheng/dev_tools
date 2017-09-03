@@ -20,12 +20,14 @@
 	function openModal() { 
 		$('#collect-form-alert').modal({
 			relatedTarget: this,
+			closeViaDimmer:false,
 			onConfirm: function(e) {
 				var page_title = $('#page-title').val();
-				var page_link = $('#page-link').val();			
-		    
+				var page_link = $('#page-link').val();	
+				var item_style = $('input[name="item-style"]:checked').val();	
+				
 				// localStrage存储
-				chrome.extension.sendRequest({type: "saveCollectData", title: page_title, link: page_link}, function(response) {
+				chrome.extension.sendRequest({type: "saveCollectData", title: page_title, link: page_link, style: item_style}, function(response) {
 				});
 			
 				// 发消息到background通知content隐藏iframe
