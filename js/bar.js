@@ -215,6 +215,18 @@ $(function() {
 		var old_text = decodeURIComponent(encode_text);
 		$('#old-text').val(old_text);
 	});
+	
+	// 计算器
+	$('#calculator-prompt-toggle').click(function() {
+		$("#calculator-box").empty();
+		$("#calculator-box").Calculadora({
+			TituloHTML:"",
+			EtiquetaBorrar:'清空'
+		});
+	    $('#calculator-alert').modal({
+			  relatedTarget: this
+	    });
+	});
 
 	// 定时刷新收藏的标签
 	setInterval(function() {
