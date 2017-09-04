@@ -22,9 +22,17 @@ body {
 	height:340px;
     float:left;
 }
-
+#collect-list-manager{
+	height:35px;
+}
 #collect-list-box{
-	height:270px;
+	height:245px;
+	overflow:scroll;
+}
+#collect-remove-list-box{
+	width:220px;
+	height:250px;
+	margin:0 auto;
 	overflow:scroll;
 }
 

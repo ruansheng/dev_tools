@@ -240,8 +240,75 @@ $(function() {
 		var html = '';
 		for(var i =0; i < list.length; i++){
 			var item_style =  list[i].style;
-			html += '<a style="max-width:125px;padding:5px;overflow:scroll;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="dispaly:block;">' + list[i].title + '</span></a><br/>';	
+			html += '<a style="max-width:120px;display:inline-block;float:left;padding:5px;overflow:scroll;margin-top:3px;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="dispaly:block;">' + list[i].title + '</span></a><br/>';	
 		}
 		$('#collect-list-box').html(html);
 	}
+	
+	function dispalyRemoveList(list) {
+		var html = '';
+		for(var i =0; i < list.length; i++){
+			var item_style =  list[i].style;
+			html += '<div>';
+				html += '<div style="width:170px;display:inline-block;float:left;">';
+					html += '<a style="max-width:120px;display:inline-block;float:left;padding:5px;overflow:scroll;margin-top:3px;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="dispaly:block;">' + list[i].title + '</span></a>';
+				html += '</div>';	
+				html += '<div style="width:50px;display:inline-block;float:left;">';
+					html += '<button type="button" class="am-close remove-this-label" link="'+ list[i].link +'">&times;</button>';
+				html += '</div>';	
+			html += '</div>';	
+		}
+		$('#collect-remove-list-box').html(html);
+	}
+	
+	// 加载标签
+	function loadCollectLabels(){
+		chrome.extension.sendRequest({type: "getCollectList"}, function(response) {
+			dispalyRemoveList(response.list)
+		});
+	}
+	
+	// 新增标签模态框
+	$('#add_collect_label').click(function(){
+	    $('#add-collect-alert').modal({
+			  relatedTarget: this,
+			  onConfirm: function(e) {
+				var page_title = $('#add-collect-title').val();
+				var page_link = $('#add-collect-link').val();	
+				var item_style = $('input[name="item-style"]:checked').val();	
+				if(page_title != '' && page_link != '') {
+					// localStrage存储
+					chrome.extension.sendRequest({type: "saveCollectData", title: page_title, link: page_link, style: item_style}, function(response) {});								
+				}
+			},
+			onCancel: function(e) {
+			}
+	    });
+	});
+	
+	// 删除标签模态框
+	$('#remove_collect_label').click(function(){
+		loadCollectLabels();
+	    $('#remove-collect-alert').modal({
+			relatedTarget: this
+		});
+	});
+	
+	// 删除标签
+	$('body').on('click', '.remove-this-label', function(){
+		var link = $(this).attr('link')
+		// 通知background删除标签
+		chrome.extension.sendRequest({type: "removeCollectData", link: link}, function(response) {
+			loadCollectLabels();
+		});								
+	});
+	
+	// 清空标签
+	$('#clear_collect_label').click(function(){
+		// 通知background清空标签
+		chrome.extension.sendRequest({type: "clearCollectData"}, function(response) {
+			loadCollectLabels();
+		});								
+	});
+	
 })

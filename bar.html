@@ -15,6 +15,10 @@
 	<div id="collect-label-box" class="am-panel am-panel-primary">
 		<div class="am-panel-hd" style="text-align:center;">标签收藏</div>
 		<div class="am-panel-bd">
+			<div id="collect-list-manager">
+				<button type="button" id="add_collect_label" class="am-btn am-btn-secondary am-btn-xs am-radius">新增</button>
+				<button type="button" id="remove_collect_label" class="am-btn am-btn-danger am-btn-xs am-radius" style="margin-left:20px;">删除</button>
+			</div>
 			<div id="collect-list-box">
 				
 			</div>
@@ -183,6 +187,71 @@
   <div class="am-modal-dialog" style="width:370px;">
     <div class="am-modal-bd" style="padding-top:10px;">
 		<div id="calculator-box"></div>
+	</div>
+  </div>
+</div>
+
+<!-- 添加收藏模态框 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="add-collect-alert">
+  <div class="am-modal-dialog">
+    <div class="am-modal-bd" style="padding-top:10px;">
+	    <input type="text" id="add-collect-title" class="am-modal-prompt-input" placeholder="名称">
+		<input type="text" id="add-collect-link" class="am-modal-prompt-input" placeholder="链接地址">
+        <div style="height:30px;margin-left:50px;">
+              <div style="width:60px;float:left;">
+                  <label class="am-radio">
+                      <input type="radio" name="item-style" value="am-badge-primary" checked>
+                      <span class="am-badge am-badge-primary">O</span>
+                  </label>
+              </div>
+              <div style="width:60px;float:left;margin-left:8px;">
+                  <label class="am-radio">
+                      <input type="radio" name="item-style" value="am-badge-secondary">
+                      <span class="am-badge am-badge-secondary">O</span>
+                  </label>
+              </div>
+              <div style="width:60px;float:left;margin-left:8px;">
+                  <label class="am-radio">
+                      <input type="radio" name="item-style" value="">
+                      <span class="am-badge">O</span>
+                  </label>
+              </div>
+              <div style="width:60px;float:left;margin-left:8px;">
+                  <label class="am-radio">
+                      <input type="radio" name="item-style" value="am-badge-success">
+                      <span class="am-badge am-badge-success">O</span>
+                  </label>
+              </div>
+              <div style="width:60px;float:left;margin-left:8px;">
+                  <label class="am-radio">
+                      <input type="radio" name="item-style" value="am-badge-warning">
+                      <span class="am-badge am-badge-warning">O</span>
+                  </label>
+              </div>
+              <div style="width:60px;float:left;margin-left:8px;">
+                  <label class="am-radio">
+                      <input type="radio" name="item-style" value="am-badge-danger">
+                      <span class="am-badge am-badge-danger">O</span>
+                  </label>
+              </div>
+        </div>
+	</div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+    </div>
+  </div>
+</div>
+
+<!-- 删除收藏模态框 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="remove-collect-alert">
+  <div class="am-modal-dialog" style="width:330px;">
+	<div class="am-modal-hd">删除标签</div>
+    <div class="am-modal-bd" style="padding-top:10px;">
+		<button type="button" id="clear_collect_label" class="am-btn am-btn-danger am-btn-xs am-radius" style="position:absolute;bottom:10px;right:5px;">清空</button>
+		<div id="collect-remove-list-box">
+				
+		</div>
 	</div>
   </div>
 </div>

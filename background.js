@@ -33,6 +33,12 @@ chrome.extension.onRequest.addListener(
 	} else if(request.type == "getCollectList") {
 		var data = getCollectData();
 		sendResponse({list:data});
+  	} else if(request.type == "removeCollectData") {
+		deleteCollectData(request.link)
+		sendResponse({status:'ok'});
+  	} else if(request.type == "clearCollectData") {
+		doClearCollectList()
+		sendResponse({status:'ok'});		
   	}
 });
   
@@ -46,6 +52,13 @@ function sendMessageToContent(type) {
 
 // 保存收藏的标签
 function saveCollectData(title, link, style) {
+	if(title == null || title == '') {
+		return;
+	}
+	if(link == null || link == '') {
+		return;
+	}
+	
 	var data = {
 		title:title,
 		link:link,
@@ -54,6 +67,24 @@ function saveCollectData(title, link, style) {
 	var list = getCollectData();
 	list.push(data);
 	var string = JSON.stringify(list);
+	localStorage.setItem("collects", string);
+}
+
+// 保存收藏的标签
+function deleteCollectData(link) {
+	if(link == null || link == '') {
+		return;
+	}
+	
+	var new_list = new Array();
+	
+	var list = getCollectData();
+	for(var i = 0; i < list.length; i++) {
+		if(list[i].link != link) {
+			new_list.push(list[i]);
+		}
+	}
+	var string = JSON.stringify(new_list);
 	localStorage.setItem("collects", string);
 }
 
