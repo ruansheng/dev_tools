@@ -228,6 +228,46 @@ $(function() {
 	    });
 	});
 
+	// 正则表达式
+	$('#regexp-prompt-toggle').click(function() {
+		$('#regexp-alert').modal({
+			relatedTarget: this
+		});
+	});
+
+	// 正则表达式匹配
+	$('#test_match_btn').click(function(){
+		var waiting_match_content = $('#waiting_match_content').val();
+		var regexp_string = $('#regexp_string').val();
+		if(waiting_match_content == '' || regexp_string == '') {
+			return;
+		}
+		
+		var is_ok = true;
+		var message = '';
+		try {
+			var result = waiting_match_content.match(regexp_string);
+	    } catch(err) {
+			is_ok = false;
+			message = err.message;
+	    }
+		
+		if(is_ok == false) {
+			$('#regepx-box-ret').text(message);			
+			return;
+		}
+		
+		if(result == null || result == '' || result.length == 0) {
+			$('#regepx-box-ret').text('未匹配到');			
+			return;
+		} 
+		var match_result = '';
+		for(var i = 0; i < result.length; i++) {
+			match_result += result[i] + "\n\n";
+		}
+		$('#regepx-box-ret').text(match_result);			
+	});
+
 	// 定时刷新收藏的标签
 	setInterval(function() {
 		// 发消息到background通知content隐藏iframe

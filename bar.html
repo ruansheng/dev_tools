@@ -91,6 +91,7 @@
 				<button type="button" class="am-btn am-btn-success" id="qrcode-prompt-toggle">二维码</button>
 				<button type="button" class="am-btn am-btn-warning" id="urlencode-prompt-toggle">urlencode转换</button>
 				<button type="button" class="am-btn am-btn-secondary" id="calculator-prompt-toggle">计算器</button>								
+				<button type="button" class="am-btn am-btn-success" id="regexp-prompt-toggle">正则表达式</button>				
 			</div>
 		</div>
 	</div>
@@ -190,6 +191,30 @@
 	</div>
   </div>
 </div>
+
+<!-- 正则表达式模态框 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="regexp-alert">
+  <div class="am-modal-dialog" style="width:500px;">
+    <div class="am-modal-hd">正则表达式</div>
+    <div class="am-modal-bd">
+		<div id="regexp-box-query">
+			<form class="am-form">		
+				<div style="margin-top:10px;">
+			    	  <textarea class="" rows="3" id="waiting_match_content" placeholder="输入你的待匹配内容">helloworld.php?a=123&b=456</textarea>
+				</div>
+				<p style="margin-top:20px;"><input type="text" id="regexp_string" class="am-form-field am-radius" placeholder="正则表达式字符串" value="(\w{1,}=\w{1,}&){1,}\w{1,}=\w{1,}"/></p>
+				<div style="margin-top:20px;">
+					<button type="button" id="test_match_btn" class="am-btn am-radius am-btn-secondary" style="width:100%;">测试匹配</button>
+				</div>
+			</form>
+		</div>
+		<pre id="regepx-box-ret" class="am-pre-scrollable">
+			匹配结果
+		</pre>
+	</div>
+  </div>
+</div>
+
 
 <!-- 添加收藏模态框 -->
 <div class="am-modal am-modal-prompt" tabindex="-1" id="add-collect-alert">
