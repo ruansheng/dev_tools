@@ -6,7 +6,6 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 //右键菜单:一级菜单
 var parent = chrome.contextMenus.create({"title": "devtools"});
 chrome.contextMenus.create({"title": "添加收藏标签", "parentId": parent, "onclick": doOnMessageToContentFromCollect});
-chrome.contextMenus.create({"title": "清空收藏标签", "parentId": parent, "onclick": doClearCollectList});
 
 // 通知内容页脚本执行 添加收藏
 function doOnMessageToContentFromCollect() {

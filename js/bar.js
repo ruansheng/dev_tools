@@ -280,7 +280,7 @@ $(function() {
 		var html = '';
 		for(var i =0; i < list.length; i++){
 			var item_style =  list[i].style;
-			html += '<a style="max-width:120px;display:inline-block;float:left;padding:5px;overflow:scroll;margin-top:3px;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="dispaly:block;">' + list[i].title + '</span></a><br/>';	
+			html += '<a style="max-width:120px;padding:5px;overflow:auto;margin-top:3px;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="width:100%;">' + list[i].title + '</span></a><br/>';	
 		}
 		$('#collect-list-box').html(html);
 	}
@@ -291,7 +291,7 @@ $(function() {
 			var item_style =  list[i].style;
 			html += '<div>';
 				html += '<div style="width:170px;display:inline-block;float:left;">';
-					html += '<a style="max-width:120px;display:inline-block;float:left;padding:5px;overflow:scroll;margin-top:3px;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="dispaly:block;">' + list[i].title + '</span></a>';
+					html += '<a style="max-width:120px;display:inline-block;float:left;padding:5px;overflow:auto;margin-top:3px;" class="am-badge am-radius '+ item_style +'" target="_blank" href="'+ list[i].link +'"><span style="width:100%;">' + list[i].title + '</span></a>';
 				html += '</div>';	
 				html += '<div style="width:50px;display:inline-block;float:left;">';
 					html += '<button type="button" class="am-close remove-this-label" link="'+ list[i].link +'">&times;</button>';
